@@ -1,1 +1,141 @@
-/* Add styles here */
+:root {
+    --primary-color: #4A90E2;
+    --secondary-color: #50E3C2;
+    --text-color: #333;
+    --bg-color: #f4f4f4;
+    --noise-texture: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23000000" width="100" height="100"/><g fill-opacity="0.4"><rect fill="%232E2E2E" width="1" height="1" x="10" y="10"/><rect fill="%233C3C3C" width="1" height="1" x="20" y="20"/><rect fill="%234A4A4A" width="1" height="1" x="30" y="30"/><rect fill="%23585858" width="1" height="1" x="40" y="40"/><rect fill="%23666666" width="1" height="1" x="50" y="50"/><rect fill="%23747474" width="1" height="1" x="60" y="60"/><rect fill="%23828282" width="1" height="1" x="70" y="70"/><rect fill="%23909090" width="1" height="1" x="80" y="80"/><rect fill="%239E9E9E" width="1" height="1" x="90" y="90"/></g></svg>');
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    background-image: var(--noise-texture);
+    background-blend-mode: multiply;
+}
+
+header {
+    background: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+.hero {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 1rem;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--noise-texture);
+    background-blend-mode: multiply;
+    opacity: 0.1;
+}
+
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    background: var(--secondary-color);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.cta-button:hover {
+    background: #48d1b3;
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+.feature-section {
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.feature-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-section.hero-section-feature {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.feature-section.hero-section-feature h2,
+.feature-section.hero-section-feature p {
+    color: #fff;
+}
+
+#mock-tests-container, #interview-questions-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    width: 90%;
+    margin: 2rem auto;
+}
+
+mock-test-card, interview-question {
+    display: block;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #fff;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
