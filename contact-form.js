@@ -7,46 +7,89 @@ class ContactForm extends HTMLElement {
   connectedCallback() {
     this.shadowRoot.innerHTML = `
       <style>
-        :host {
-          display: block;
-          max-width: 600px;
-          margin: 0 auto;
-          padding: 2rem;
+        :host { display: block; width: 100%; }
+        .contact-form {
+            background: var(--surface-color);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
         }
-        form {
-          display: grid;
-          gap: 1.5rem;
+        .form-group { margin-bottom: var(--spacing-md); }
+        label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 500;
+            color: var(--text-color);
         }
-        input, textarea {
-          width: 100%;
-          padding: 1rem;
-          border-radius: 8px;
-          border: 1px solid #ccc;
-          font-size: 1rem;
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 1px solid var(--primary-color-light);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
-        button {
-          justify-self: start;
-          padding: 1rem 2rem;
-          border-radius: 8px;
-          border: none;
-          background-color: #4A90E2;
-          color: white;
-          font-size: 1rem;
-          cursor: pointer;
-          transition: background-color 0.3s;
+        input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px oklch(70% 0.1 255 / 25%);
         }
-        button:hover {
-          background-color: #357ABD;
+        textarea { resize: vertical; min-height: 150px; }
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .submit-btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+        #success-message {
+            margin-top: var(--spacing-md);
+            color: var(--secondary-color-dark);
+            font-weight: 500;
         }
       </style>
-      <form>
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+        <div id="success-message"></div>
       </form>
     `;
+
+    const contactForm = this.shadowRoot.querySelector('.contact-form');
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const successMessage = this.shadowRoot.querySelector('#success-message');
+        successMessage.textContent = 'Thank you for your message! We will get back to you shortly.';
+        contactForm.reset();
+    });
   }
 }
 
 customElements.define('contact-form', ContactForm);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const contactFormContainer = document.getElementById('contact-form');
+    if (contactFormContainer) {
+        const contactForm = document.createElement('contact-form');
+        contactFormContainer.appendChild(contactForm);
+    }
+});

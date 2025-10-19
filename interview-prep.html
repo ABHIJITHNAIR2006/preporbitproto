@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interview Prep - Placement Prep</title>
     <link rel="stylesheet" href="style.css">
-    <script src="interview-question.js" defer></script>
 </head>
 <body>
     <header>
@@ -13,18 +12,26 @@
             <div class="logo"><a href="index.html" style="text-decoration: none; color: var(--primary-color);">Placement Prep</a></div>
             <ul>
                 <li><a href="mock-tests.html">Mock Tests</a></li>
-                <li><a href="interview-prep.html">Interview Prep</a></li>
+                <li><a href="interview-prep.html" class="active">Interview Prep</a></li>
                 <li><a href="resume-builder.html">Resume Builder</a></li>
+                <li><a href="skill-building.html">Skill Building</a></li>
+                <li><a href="question-solving.html">Question Solving</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="interview-prep" class="feature-section hero-section-feature">
-            <h2>Interview Question Banks</h2>
-            <p>Access a vast collection of interview questions and experiences.</p>
-            <div id="interview-questions-container" class="card-container"></div>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Interview Prep</h1>
+                <p>Sharpen your skills with our curated list of interview questions.</p>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <h2>Common Questions</h2>
+            <div id="interview-questions-container" class="grid-container"></div>
         </section>
     </main>
 
@@ -33,5 +40,6 @@
     </footer>
 
     <script src="main.js"></script>
+    <script src="interview-question.js"></script>
 </body>
 </html>

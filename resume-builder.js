@@ -10,131 +10,85 @@ class ResumeBuilder extends HTMLElement {
           :host {
               display: block;
               width: 100%;
-              max-width: 800px;
-              margin: 2rem auto;
-              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
           }
-
           .resume-form {
-              background: #fff;
-              padding: 2.5rem;
-              border-radius: 16px;
-              box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+              background: var(--surface-color);
+              padding: var(--spacing-lg);
+              border-radius: var(--border-radius);
+              box-shadow: var(--shadow-md);
           }
-
-          .form-section {
-              margin-bottom: 2rem;
-          }
-
           .form-section h3 {
-              font-size: 1.5rem;
-              color: #4A90E2;
-              margin-bottom: 1.5rem;
-              border-bottom: 2px solid #f0f0f0;
-              padding-bottom: 0.5rem;
+              font-size: 1.75rem;
+              color: var(--primary-color);
+              margin-bottom: var(--spacing-md);
+              padding-bottom: var(--spacing-sm);
+              border-bottom: 2px solid var(--primary-color-light);
           }
-
-          .form-group {
-              margin-bottom: 1.25rem;
-          }
-
+          .form-group { margin-bottom: var(--spacing-md); }
           label {
               display: block;
-              margin-bottom: 0.5rem;
+              margin-bottom: var(--spacing-sm);
               font-weight: 500;
-              color: #555;
+              color: var(--text-color);
           }
-
-          input[type="text"],
-          input[type="email"],
-          input[type="tel"],
-          textarea {
+          input[type="text"], input[type="email"], input[type="tel"], textarea {
               width: 100%;
-              padding: 0.75rem;
-              border: 1px solid #ccc;
-              border-radius: 8px;
+              padding: var(--spacing-md);
+              border: 1px solid var(--primary-color-light);
+              border-radius: var(--border-radius);
               font-size: 1rem;
-              transition: border-color 0.3s, box-shadow 0.3s;
+              transition: all 0.3s ease;
+              background-color: var(--bg-color);
+              color: var(--text-color);
           }
-
-          input[type="text"]:focus,
-          input[type="email"]:focus,
-          input[type="tel"]:focus,
-          textarea:focus {
+          input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus {
               outline: none;
-              border-color: #4A90E2;
-              box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+              border-color: var(--primary-color);
+              box-shadow: 0 0 0 3px oklch(70% 0.1 255 / 25%);
           }
-
-          textarea {
-              resize: vertical;
-              min-height: 100px;
-          }
-
+          textarea { resize: vertical; min-height: 120px; }
           .generate-btn {
-              background-color: #50E3C2;
-              color: #fff;
+              background-color: var(--secondary-color);
+              color: white;
               padding: 0.8rem 1.8rem;
               border: none;
-              border-radius: 8px;
+              border-radius: var(--border-radius);
               font-size: 1.1rem;
-              font-weight: bold;
+              font-weight: 600;
               cursor: pointer;
-              transition: background-color 0.3s, transform 0.2s;
-              box-shadow: 0 4px 10px rgba(80, 227, 194, 0.4);
+              transition: all 0.3s ease;
+              box-shadow: var(--shadow-sm);
           }
-
           .generate-btn:hover {
-              background-color: #48d1b3;
+              filter: brightness(1.1);
               transform: translateY(-2px);
           }
           #resume-output {
-            margin-top: 2rem;
-            padding: 2rem;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background: #fff;
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            border: 1px solid var(--primary-color-light);
+            border-radius: var(--border-radius);
+            background: var(--bg-color);
          }
       </style>
       <div class="resume-form">
-        <div class="form-section">
-          <h3>Personal Information</h3>
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" required>
+          <div class="form-section">
+              <h3>Personal Information</h3>
+              <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" required></div>
+              <div class="form-group"><label for="email">Email</label><input type="email" id="email" required></div>
+              <div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone"></div>
           </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" required>
+          <div class="form-section">
+              <h3>Education</h3>
+              <div class="form-group"><label for="degree">Degree</label><input type="text" id="degree"></div>
+              <div class="form-group"><label for="university">University</label><input type="text" id="university"></div>
           </div>
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone">
+          <div class="form-section">
+              <h3>Experience</h3>
+              <div class="form-group"><label for="experience">Work Experience</label><textarea id="experience" rows="5"></textarea></div>
           </div>
-        </div>
-
-        <div class="form-section">
-          <h3>Education</h3>
-          <div class="form-group">
-            <label for="degree">Degree</label>
-            <input type="text" id="degree">
-          </div>
-          <div class="form-group">
-            <label for="university">University</label>
-            <input type="text" id="university">
-          </div>
-        </div>
-
-        <div class="form-section">
-            <h3>Experience</h3>
-            <div class="form-group">
-                <label for="experience">Work Experience</label>
-                <textarea id="experience" rows="4"></textarea>
-            </div>
-        </div>
-
-        <button class="generate-btn">Generate Resume</button>
-        <div id="resume-output"></div>
+          <button class="generate-btn">Generate Resume</button>
+          <div id="resume-output"></div>
       </div>
     `;
 
@@ -164,3 +118,11 @@ class ResumeBuilder extends HTMLElement {
 }
 
 customElements.define('resume-builder', ResumeBuilder);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const resumeContainer = document.querySelector('.resources-section');
+    if (resumeContainer) {
+        const resumeBuilder = document.createElement('resume-builder');
+        resumeContainer.appendChild(resumeBuilder);
+    }
+});

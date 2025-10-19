@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Placement Prep</title>
     <link rel="stylesheet" href="style.css">
-    <script src="contact-form.js" defer></script>
 </head>
 <body>
     <header>
@@ -15,16 +14,25 @@
                 <li><a href="mock-tests.html">Mock Tests</a></li>
                 <li><a href="interview-prep.html">Interview Prep</a></li>
                 <li><a href="resume-builder.html">Resume Builder</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="skill-building.html">Skill Building</a></li>
+                <li><a href="question-solving.html">Question Solving</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="contact" class="feature-section">
-            <h2>Contact Us</h2>
-            <p>Have questions or feedback? Reach out to us!</p>
-            <contact-form></contact-form>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Contact Us</h1>
+                <p>We'd love to hear from you. Reach out with any questions or feedback.</p>
+            </div>
+        </section>
+
+        <section class="resources-section">
+            <h2>Contact Form</h2>
+            <form id="contact-form">
+                </form>
         </section>
     </main>
 
@@ -32,5 +40,6 @@
         <p>&copy; 2023 Placement Prep. All rights reserved.</p>
     </footer>
 
+    <script src="contact-form.js"></script>
 </body>
 </html>

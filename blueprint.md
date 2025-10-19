@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a web application designed to help students prepare for job placements. It provides resources such as company-specific mock tests, interview question banks, a resume builder, and a contact form.
+This project is a web application designed to help students prepare for job placements. It provides resources such as company-specific mock tests, interview question banks, a resume builder, a skill-building section, and a contact form.
 
 ## Project Structure
 
@@ -10,11 +10,13 @@ This project is a web application designed to help students prepare for job plac
 - `mock-tests.html`: The page for company-specific mock tests.
 - `interview-prep.html`: The page for interview question banks.
 - `resume-builder.html`: The page for the resume builder.
+- `skill-building.html`: The page for skill-building resources.
 - `contact.html`: The page for the contact form.
 - `style.css`: Contains the styles for the application.
 - `main.js`: The main JavaScript file, containing logic for populating the mock tests and interview questions.
 - `interview-question.js`: A web component for displaying interview questions.
 - `resume-builder.js`: A web component for the resume builder form.
+- `skill-building.js`: The JavaScript file for the skill-building page.
 - `contact-form.js`: A web component for the contact form.
 
 ## Features
@@ -40,6 +42,12 @@ This project is a web application designed to help students prepare for job plac
 - The form includes fields for personal information, education, and experience.
 - The resume is generated and displayed on the page.
 
+### Skill Building Page
+
+- Provides curated resources for Data Structures and Algorithms (DSA) and Web Development.
+- Resources are categorized by topic.
+- Each resource includes a link to an external website.
+
 ### Contact Us Page
 
 - A contact form to allow users to send messages on a dedicated page.
@@ -53,10 +61,11 @@ This project is a web application designed to help students prepare for job plac
 - The application uses a noise texture for the background.
 - The cards have a shadow to create a lifted effect.
 
-## Current Plan: Final Spacing Correction
+## Current Plan: Add Skill Building Section
 
-- **Objective:** To set a `50px` space between all cards on the Mock Tests and Interview Prep pages, as requested.
+- **Objective:** To add a new section to the website for skill-building resources.
 - **Steps Taken:**
-  - **Grid Container (`style.css`):** The `gap` property for the `#mock-tests-container` and `#interview-questions-container` selectors was set to `50px`. This is the sole property responsible for creating space between the cards.
-  - **Web Components (`main.js`, `interview-question.js`):** Any `margin` properties on the `:host` of the `mock-test-card` and `interview-question` components were removed to prevent interference with the `gap` property of the parent grid.
-  - **This is the definitive and correct implementation for the requested spacing.**
+  - Created `skill-building.html` to house the content.
+  - Created `skill-building.js` to dynamically load the resource links.
+  - Added CSS styles to `style.css` for the new section.
+  - Updated the navigation bar in `index.html` and other relevant pages to include a link to the new "Skill Building" page.
