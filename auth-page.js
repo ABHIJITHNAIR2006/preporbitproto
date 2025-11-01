@@ -19,6 +19,20 @@ class AuthPage extends HTMLElement {
     this.render();
   }
 
+  _handleAuth(event) {
+    event.preventDefault();
+    // In a real app, you would add validation and an API call here.
+    // For this demo, we will just redirect.
+    if (this.isLoginView) {
+      console.log('Login attempt');
+      window.location.href = 'mock-tests.html';
+    } else {
+      console.log('Sign up attempt');
+      // Redirecting on sign-up as well for this demo
+      window.location.href = 'mock-tests.html';
+    }
+  }
+
   render() {
     this.shadowRoot.innerHTML = `
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -170,7 +184,7 @@ class AuthPage extends HTMLElement {
         <h1>${this.isLoginView ? 'Welcome Back' : 'Create an Account'}</h1>
         <p>${this.isLoginView ? 'Log in to continue your journey.' : 'Sign up to get started.'}</p>
         
-        <form class="auth-form" onsubmit="event.preventDefault();">
+        <form class="auth-form">
           ${!this.isLoginView ? `
           <div class="input-group">
             <i class="fas fa-user"></i>
@@ -207,7 +221,9 @@ class AuthPage extends HTMLElement {
       </div>
     `;
 
+    // Add event listeners after rendering
     this.shadowRoot.getElementById('toggle-link').addEventListener('click', () => this.toggleView());
+    this.shadowRoot.querySelector('.auth-form').addEventListener('submit', (e) => this._handleAuth(e));
   }
 }
 
