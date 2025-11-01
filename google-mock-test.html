@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google - Mock Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Google - Software Engineering Intern</h1>
+    </header>
+    <main id="mock-test-container">
+    </main>
+    <script src="mock-test-details.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const questions = [
+                {
+                    question: "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+                    answer: `
+<p><b>Answer:</b></p>
+<p>We can use a hash map (or a dictionary in Python) to solve this problem in one pass. As we iterate through the array, for each element, we check if the difference between the target and the current element exists in the hash map. If it does, we have found our pair. If not, we add the current element and its index to the hash map.</p>
+<p><b>Code (Python):</b></p>
+<pre>
+def two_sum(nums, target):
+    num_map = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in num_map:
+            return [num_map[complement], i]
+        num_map[num] = i
+</pre>
+<p><b>Time Complexity:</b> O(n) because we iterate through the array once.</p>
+`
+                },
+                {
+                    question: "Write a function to reverse a singly linked list.",
+                    answer: `
+<p><b>Answer:</b></p>
+<p>We can reverse the linked list iteratively. We'll need three pointers: \`prev\`, \`current\`, and \`next_node\`. We initialize \`prev\` to \`None\` and \`current\` to the head of the list. We iterate through the list, and at each node, we store the next node, then change the current node's \`next\` pointer to point to \`prev\`. Then we move \`prev\` and \`current\` one step forward.</p>
+<p><b>Code (Python):</b></p>
+<pre>
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def reverse_list(head):
+    prev = None
+    current = head
+    while current:
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+    return prev
+</pre>
+<p><b>Time Complexity:</b> O(n) because we traverse the list once.</p>
+`
+                },
+                {
+                    question: "Find the lowest common ancestor of two nodes in a binary search tree.",
+                    answer: `
+<p><b>Answer:</b></p>
+<p>For a binary search tree (BST), we can find the lowest common ancestor (LCA) efficiently. We start from the root. If both nodes' values are smaller than the current node's value, the LCA must be in the left subtree. If both are larger, the LCA must be in the right subtree. If one is smaller and one is larger, then the current node is the LCA.</p>
+<p><b>Code (Python):</b></p>
+<pre>
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def lowest_common_ancestor(root, p, q):
+    if not root:
+        return None
+    if p.val < root.val and q.val < root.val:
+        return lowest_common_ancestor(root.left, p, q)
+    elif p.val > root.val and q.val > root.val:
+        return lowest_common_ancestor(root.right, p, q)
+    else:
+        return root
+</pre>
+<p><b>Time Complexity:</b> O(h) where h is the height of the tree. In a balanced tree, this is O(log n).</p>
+`
+                },
+                {
+                    question: "Given a string, find the length of the longest substring without repeating characters.",
+                    answer: `
+<p><b>Answer:</b></p>
+<p>We can use the sliding window technique. We'll have a window defined by a \`start\` and \`end\` pointer. We'll also use a set to keep track of the characters in the current window. We expand the window by moving the \`end\` pointer. If we encounter a character that's already in the set, we shrink the window from the \`start\` until the repeating character is removed.</p>
+<p><b>Code (Python):</b></p>
+<pre>
+def length_of_longest_substring(s):
+    char_set = set()
+    start = 0
+    max_len = 0
+    for end, char in enumerate(s):
+        while char in char_set:
+            char_set.remove(s[start])
+            start += 1
+        char_set.add(char)
+        max_len = max(max_len, end - start + 1)
+    return max_len
+</pre>
+<p><b>Time Complexity:</b> O(n) because each character will be visited at most twice (by the start and end pointers).</p>
+`
+                },
+                {
+                    question: "Merge two sorted linked lists and return it as a new sorted list.",
+                    answer: `
+<p><b>Answer:</b></p>
+<p>We can merge two sorted linked lists by creating a dummy head for the new list. We'll have a pointer to the current node of the new list. We compare the values of the current nodes of the two input lists. The smaller value is appended to the new list, and the corresponding pointer is moved forward. We continue this until one of the lists is exhausted, and then we append the rest of the other list.</p>
+<p><b>Code (Python):</b></p>
+<pre>
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def merge_two_lists(l1, l2):
+    dummy = ListNode()
+    current = dummy
+    while l1 and l2:
+        if l1.val < l2.val:
+            current.next = l1
+            l1 = l1.next
+        else:
+            current.next = l2
+            l2 = l2.next
+        current = current.next
+    current.next = l1 or l2
+    return dummy.next
+</pre>
+<p><b>Time Complexity:</b> O(m + n) where m and n are the lengths of the two lists.</p>
+`
+                }
+            ];
+
+            const mockTestContainer = document.querySelector('#mock-test-container');
+            questions.forEach(q => {
+                const questionCard = document.createElement('mock-test-details');
+                questionCard.setAttribute('question', q.question);
+                questionCard.setAttribute('answer', q.answer);
+                mockTestContainer.appendChild(questionCard);
+            });
+        });
+    </script>
+</body>
+</html>

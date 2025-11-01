@@ -101,6 +101,7 @@ class MockTestCard extends HTMLElement {
     connectedCallback() {
         const company = this.getAttribute('company');
         const title = this.getAttribute('title');
+        const link = `${company.toLowerCase()}-mock-test.html`;
 
         this.shadowRoot.innerHTML = `
             <style>
@@ -159,7 +160,7 @@ class MockTestCard extends HTMLElement {
                     <h3>${company}</h3>
                     <p>${title}</p>
                 </div>
-                <a href="#" class="start-button">Start Test</a>
+                <a href="${link}" class="start-button">Start Test</a>
             </div>
         `;
     }

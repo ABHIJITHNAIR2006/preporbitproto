@@ -5,6 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question Solving - Placement Prep</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Container for the grid of topics */
+        #topics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg, 24px);
+            padding: var(--spacing-lg, 24px);
+        }
+
+        /* Individual card for each topic */
+        .topic-card {
+            background: var(--surface-color, #ffffff);
+            border-radius: var(--border-radius-lg, 12px);
+            box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06));
+            padding: var(--spacing-lg, 24px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05));
+        }
+
+        /* Title inside the card */
+        .topic-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-color, #1f2937);
+            margin-top: 0;
+            margin-bottom: var(--spacing-md, 16px);
+        }
+
+        /* The decorative horizontal line */
+        .topic-card hr {
+            border: 0;
+            height: 2px;
+            background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            margin-bottom: var(--spacing-md, 16px);
+        }
+
+        /* List of questions */
+        .question-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .question-list li {
+            margin-bottom: var(--spacing-sm, 12px);
+        }
+
+        .question-list a {
+            text-decoration: none;
+            color: var(--text-muted-color, #4b5563);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .question-list a:hover {
+            color: var(--primary-color, #007bff);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #topics-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #topics-container {
+                grid-template-columns: 1fr;
+            }
+             .resources-section h2 {
+                text-align: center;
+            }
+        }
+
+    </style>
 </head>
 <body>
     <header>
@@ -16,7 +94,7 @@
                 <li><a href="resume-builder.html">Resume Builder</a></li>
                 <li><a href="skill-building.html">Skill Building</a></li>
                 <li><a href="question-solving.html" class="active">Question Solving</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="auth.html?mode=login" class="cta-button">Login / Sign Up</a></li>
             </ul>
         </nav>
     </header>
@@ -25,13 +103,129 @@
         <section class="hero">
             <div class="hero-content">
                 <h1>Question Solving</h1>
-                <p>Practice coding questions from HackerRank and LeetCode, organized by topic.</p>
+                <p>Practice solving problems from popular coding platforms.</p>
             </div>
         </section>
 
         <section class="resources-section">
-            <h2>Topics</h2>
-            <div id="topics-container"></div>
+            <h2>Practice Platforms</h2>
+            <div id="topics-container">
+                
+                <!-- Arrays Card -->
+                <div class="topic-card">
+                    <h3>Arrays</h3>
+                    <hr>
+                    <ul class="question-list">
+                        <li><a href="https://leetcode.com/problems/two-sum/" target="_blank">Two Sum</a></li>
+                        <li><a href="https://leetcode.com/problems/rotate-array/" target="_blank">Rotate Array</a></li>
+                        <li><a href="https://www.hackerrank.com/challenges/plus-one/problem" target="_blank">Plus One</a></li>
+                        <li><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank">Best Time to Buy and Sell Stock</a></li>
+                        <li><a href="https://leetcode.com/problems/contains-duplicate/" target="_blank">Contains Duplicate</a></li>
+                        <li><a href="https://leetcode.com/problems/product-of-array-except-self/" target="_blank">Product of Array Except Self</a></li>
+                        <li><a href="https://leetcode.com/problems/maximum-subarray/" target="_blank">Maximum Subarray</a></li>
+                        <li><a href="https://leetcode.com/problems/merge-intervals/" target="_blank">Merge Intervals</a></li>
+                    </ul>
+                </div>
+
+                <!-- Strings Card -->
+                <div class="topic-card">
+                    <h3>Strings</h3>
+                    <hr>
+                    <ul class="question-list">
+                        <li><a href="https://leetcode.com/problems/reverse-string/" target="_blank">Reverse String</a></li>
+                        <li><a href="https://leetcode.com/problems/valid-anagram/" target="_blank">Valid Anagram</a></li>
+                        <li><a href="https://leetcode.com/problems/string-compression/" target="_blank">String Compression</a></li>
+                        <li><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank">Longest Substring Without Repeating Characters</a></li>
+                        <li><a href="https://leetcode.com/problems/longest-palindromic-substring/" target="_blank">Longest Palindromic Substring</a></li>
+                        <li><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank">Valid Parentheses</a></li>
+                        <li><a href="https://leetcode.com/problems/group-anagrams/" target="_blank">Group Anagrams</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Linked Lists Card -->
+                <div class="topic-card">
+                    <h3>Linked Lists</h3>
+                    <hr>
+                    <ul class="question-list">
+                        <li><a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank">Reverse Linked List</a></li>
+                        <li><a href="https://leetcode.com/problems/merge-two-sorted-lists/" target="_blank">Merge Two Sorted Lists</a></li>
+                        <li><a href="https://leetcode.com/problems/linked-list-cycle/" target="_blank">Linked List Cycle</a></li>
+                        <li><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/" target="_blank">Remove Nth Node From End of List</a></li>
+                        <li><a href="https://leetcode.com/problems/intersection-of-two-linked-lists/" target="_blank">Intersection of Two Linked Lists</a></li>
+                        <li><a href="https://leetcode.com/problems/palindrome-linked-list/" target="_blank">Palindrome Linked List</a></li>
+                        <li><a href="https://leetcode.com/problems/copy-list-with-random-pointer/" target="_blank">Copy List with Random Pointer</a></li>
+                    </ul>
+                </div>
+
+                <!-- Stacks & Queues Card -->
+                <div class="topic-card">
+                    <h3>Stacks & Queues</h3>
+                    <hr>
+                    <ul class="question-list">
+                        <li><a href="https://leetcode.com/problems/implement-queue-using-stacks/" target="_blank">Implement Queue using Stacks</a></li>
+                        <li><a href="https://leetcode.com/problems/implement-stack-using-queues/" target="_blank">Implement Stack using Queues</a></li>
+                        <li><a href="https://leetcode.com/problems/min-stack/" target="_blank">Min Stack</a></li>
+                        <li><a href="https://leetcode.com/problems/daily-temperatures/" target="_blank">Daily Temperatures</a></li>
+                        <li><a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank">Sliding Window Maximum</a></li>
+                    </ul>
+                </div>
+
+                <!-- Trees & Graphs Card -->
+                <div class="topic-card">
+                    <h3>Trees & Graphs</h3>
+                    <hr>
+                    <ul class="question-list">
+                        <li><a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank">Invert Binary Tree</a></li>
+                        <li><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank">Maximum Depth of Binary Tree</a></li>
+                        <li><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" target="_blank">Lowest Common Ancestor of a BST</a></li>
+                        <li><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank">Binary Tree Level Order Traversal</a></li>
+                        <li><a href="https://leetcode.com/problems/validate-binary-search-tree/" target="_blank">Validate Binary Search Tree</a></li>
+                        <li><a href="https://leetcode.com/problems/number-of-islands/" target="_blank">Number of Islands</a></li>
+                        <li><a href="https://leetcode.com/problems/course-schedule/" target="_blank">Course Schedule</a></li>
+                    </ul>
+                </div>
+
+                <!-- Sorting & Searching Card -->
+                <div class="topic-card">
+                    <h3>Sorting & Searching</h3>
+                    <hr>
+                    <ul class="question-list">
+                        <li><a href="https://leetcode.com/problems/binary-search/" target="_blank">Binary Search</a></li>
+                        <li><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/" target="_blank">Search in Rotated Sorted Array</a></li>
+                        <li><a href="https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/" target="_blank">Find First and Last Position</a></li>
+                        <li><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/" target="_blank">Kth Largest Element in an Array</a></li>
+                        <li><a href="https://leetcode.com/problems/top-k-frequent-elements/" target="_blank">Top K Frequent Elements</a></li>
+                        <li><a href="https://leetcode.com/problems/sort-an-array/" target="_blank">Sort an Array (Merge Sort)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dynamic Programming Card -->
+                <div class="topic-card">
+                    <h3>Dynamic Programming</h3>
+                    <hr>
+                    <ul class="question-list">
+                        <li><a href="https://leetcode.com/problems/climbing-stairs/" target="_blank">Climbing Stairs</a></li>
+                        <li><a href="https://leetcode.com/problems/coin-change/" target="_blank">Coin Change</a></li>
+                        <li><a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank">Longest Increasing Subsequence</a></li>
+                        <li><a href="https://leetcode.com/problems/word-break/" target="_blank">Word Break</a></li>
+                        <li><a href="https://leetcode.com/problems/house-robber/" target="_blank">House Robber</a></li>
+                        <li><a href="https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/" target="_blank">0/1 Knapsack</a></li>
+                    </ul>
+                </div>
+
+                <!-- Heaps / Priority Queues Card -->
+                <div class="topic-card">
+                    <h3>Heaps / Priority Queues</h3>
+                    <hr>
+                    <ul class="question-list">
+                        <li><a href="https://leetcode.com/problems/find-median-from-data-stream/" target="_blank">Find Median from Data Stream</a></li>
+                        <li><a href="https://leetcode.com/problems/k-closest-points-to-origin/" target="_blank">K Closest Points to Origin</a></li>
+                        <li><a href="https://leetcode.com/problems/top-k-frequent-elements/" target="_blank">Top K Frequent Elements</a></li>
+                        <li><a href="https://leetcode.com/problems/merge-k-sorted-lists/" target="_blank">Merge K Sorted Lists</a></li>
+                    </ul>
+                </div>
+
+            </div>
         </section>
     </main>
 
@@ -39,6 +233,7 @@
         <p>&copy; 2023 Placement Prep. All rights reserved.</p>
     </footer>
 
-    <script src="question-solving.js"></script>
+    <!-- The script file is not needed if the content is hardcoded as requested -->
+    <!-- <script src="question-solving.js" type="module"></script> -->
 </body>
 </html>

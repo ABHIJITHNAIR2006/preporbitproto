@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infosys - Mock Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Infosys - Systems Engineer</h1>
+    </header>
+    <main id="mock-test-container">
+    </main>
+    <script src="mock-test-details.js"></script>
+    <script>
+        const questions = [
+            {
+                question: "Explain the four main pillars of OOPs.",
+                answer: `
+<p><b>Answer:</b></p>
+<ul>
+    <li><b>Encapsulation:</b> The bundling of data and the methods that operate on that data into a single unit (a class). It restricts direct access to some of an object's components, which is a means of preventing unintended interference and misuse of the methods.</li>
+    <li><b>Abstraction:</b> The concept of hiding the complex reality while exposing only the necessary parts. It helps to reduce complexity and allows for easier-to-understand code.</li>
+    <li><b>Inheritance:</b> A mechanism wherein a new class derives from an existing class. The new class, called a subclass, inherits the properties and methods of the existing class, called a superclass.</li>
+    <li><b>Polymorphism:</b> The ability of an object to take on many forms. The most common use of polymorphism in OOP occurs when a parent class reference is used to refer to a child class object.</li>
+</ul>
+`
+            },
+            {
+                question: "Write a program to check if a string is a palindrome.",
+                answer: `
+<p><b>Answer:</b></p>
+<p>A simple and efficient way to check for a palindrome is to use a two-pointer approach. One pointer starts from the beginning of the string, and the other starts from the end. We compare the characters at these two pointers and move them towards the center.</p>
+<p><b>Code (Python):</b></p>
+<pre>
+def is_palindrome(s):
+    left, right = 0, len(s) - 1
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
+</pre>
+`
+            },
+            {
+                question: "What is normalization? Explain 1NF, 2NF, and 3NF.",
+                answer: `
+<p><b>Answer:</b></p>
+<p><b>Normalization</b> is the process of organizing columns (attributes) and tables (relations) of a relational database to minimize data redundancy.</p>
+<ul>
+    <li><b>1NF (First Normal Form):</b> A table is in 1NF if all of its columns contain atomic values, meaning each cell holds a single value, not a list of values.</li>
+    <li><b>2NF (Second Normal Form):</b> A table is in 2NF if it is in 1NF and every non-primary-key attribute is fully dependent on the primary key. This means there are no partial dependencies.</li>
+    <li><b>3NF (Third Normal Form):</b> A table is in 3NF if it is in 2NF and there are no transitive dependencies. A transitive dependency is when a non-key attribute depends on another non-key attribute.</li>
+</ul>
+`
+            },
+            {
+                question: "What is the difference between a list and a tuple in Python?",
+                answer: `
+<p><b>Answer:</b></p>
+<ul>
+    <li><b>Mutability:</b> Lists are mutable, meaning you can change their content (add, remove, or change elements). Tuples are immutable, meaning you cannot change their content after they are created.</li>
+    <li><b>Syntax:</b> Lists are created with square brackets `[]`, while tuples are created with parentheses `()`.</li>
+    <li><b>Performance:</b> Tuples are generally more memory-efficient and faster than lists.</li>
+</ul>
+`
+            },
+            {
+                question: "What is a constructor in Java?",
+                answer: `
+<p><b>Answer:</b></p>
+<p>A constructor is a special method in a class that is called when an object of that class is created. It is used to initialize the object's state. Constructors have the same name as the class and do not have a return type.</p>
+<p><b>Example (Java):</b></p>
+<pre>
+public class MyClass {
+    private int my_variable;
+
+    // Constructor
+    public MyClass(int initial_value) {
+        my_variable = initial_value;
+    }
+}
+</pre>
+`
+            }
+        ];
+
+        const mockTestContainer = document.querySelector('#mock-test-container');
+        questions.forEach(q => {
+            const questionCard = document.createElement('mock-test-details');
+            questionCard.setAttribute('question', q.question);
+            questionCard.setAttribute('answer', q.answer);
+            mockTestContainer.appendChild(questionCard);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wipro - Mock Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Wipro - Project Engineer</h1>
+    </header>
+    <main id="mock-test-container">
+    </main>
+    <script src="mock-test-details.js"></script>
+    <script>
+        const questions = [
+            {
+                question: "Write a program to swap two numbers without using a third variable.",
+                answer: `
+<p><b>Answer:</b></p>
+<p>You can swap two numbers without a third variable using arithmetic operations or bitwise XOR.</p>
+<p><b>Using Arithmetic Operations (Java):</b></p>
+<pre>
+public class SwapNumbers {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 20;
+        a = a + b;
+        b = a - b;
+        a = a - b;
+        System.out.println("a: " + a + ", b: " + b);
+    }
+}
+</pre>
+<p><b>Using Bitwise XOR (Java):</b></p>
+<pre>
+public class SwapNumbers {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 20;
+        a = a ^ b;
+        b = a ^ b;
+        a = a ^ b;
+        System.out.println("a: " + a + ", b: " + b);
+    }
+}
+</pre>
+`
+            },
+            {
+                question: "What is the difference between an array and a linked list?",
+                answer: `
+<p><b>Answer:</b></p>
+<ul>
+    <li><b>Memory Allocation:</b> Arrays have contiguous memory allocation, while linked lists have non-contiguous memory allocation.</li>
+    <li><b>Element Access:</b> Elements in an array can be accessed randomly using an index. In a linked list, you have to traverse the list from the beginning to access an element.</li>
+    <li><b>Insertion/Deletion:</b> Insertion and deletion of elements are faster in a linked list than in an array, as it doesn't require shifting of elements.</li>
+</ul>
+`
+            },
+            {
+                question: "Tell me about your final year project.",
+                answer: `
+<p><b>Answer Structure:</b></p>
+<ol>
+    <li><b>Project Goal:</b> Start by explaining the problem your project was trying to solve.</li>
+    <li><b>Your Specific Role:</b> Describe your individual contribution to the project. Were you responsible for the backend, frontend, database, or a specific module?</li>
+    <li><b>The Technology Stack Used:</b> List the technologies you used (e.g., Java, Python, React, etc.) and explain why you chose them.</li>
+    <li><b>The Biggest Challenge You Faced:</b> Talk about a specific technical challenge you encountered and how you overcame it. This demonstrates your problem-solving skills.</li>
+</ol>
+`
+            },
+            {
+                question: "What is a deadlock?",
+                answer: `
+<p><b>Answer:</b></p>
+<p>A deadlock is a situation where two or more competing actions are waiting for the other to finish, and thus neither ever does. In a database or operating system, a deadlock occurs when two or more processes are blocked forever, waiting for each other to release a resource.</p>
+`
+            },
+            {
+                question: "What is the use of the `static` keyword in Java?",
+                answer: `
+<p><b>Answer:</b></p>
+<p>The `static` keyword in Java is used to create class-level variables and methods. This means that the variable or method belongs to the class itself, not to any specific instance of the class.</p>
+<ul>
+    <li><b>Static Variables:</b> Also known as class variables, they are shared among all instances of the class.</li>
+    <li><b>Static Methods:</b> Can be called without creating an instance of the class. They can only access static variables and other static methods.</li>
+</ul>
+`
+            }
+        ];
+
+        const mockTestContainer = document.querySelector('#mock-test-container');
+        questions.forEach(q => {
+            const questionCard = document.createElement('mock-test-details');
+            questionCard.setAttribute('question', q.question);
+            questionCard.setAttribute('answer', q.answer);
+            mockTestContainer.appendChild(questionCard);
+        });
+    </script>
+</body>
+</html>

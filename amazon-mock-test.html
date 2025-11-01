@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon - Mock Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Amazon - Data Science Intern</h1>
+    </header>
+    <main id="mock-test-container">
+        </main>
+    <script src="mock-test-details.js"></script>
+    <script>
+        const questions = [
+            {
+                question: "Given a table of users and a table of orders, write a query to find the top 3 users who placed the most orders in the last month.",
+                answer: `
+<p><b>Answer:</b></p>
+<p><b>SQL Query:</b></p>
+<pre>
+SELECT u.user_id, u.user_name, COUNT(o.order_id) AS order_count
+FROM users u
+JOIN orders o ON u.user_id = o.user_id
+WHERE o.order_date >= DATE('now', '-1 month')
+GROUP BY u.user_id, u.user_name
+ORDER BY order_count DESC
+LIMIT 3;
+</pre>
+`
+            },
+            {
+                question: "What is the difference between L1 and L2 regularization?",
+                answer: `
+<p><b>Answer:</b></p>
+<p>L1 and L2 regularization are techniques used to prevent overfitting in machine learning models.</p>
+<ul>
+    <li><b>L1 Regularization (Lasso):</b> Adds a penalty equal to the absolute value of the magnitude of coefficients. This can result in some coefficients becoming exactly zero, which means it can be used for feature selection.</li>
+    <li><b>L2 Regularization (Ridge):</b> Adds a penalty equal to the square of the magnitude of coefficients. This shrinks the coefficients but doesn't force them to be exactly zero.</li>
+</ul>
+<p><b>When to use each:</b></p>
+<ul>
+    <li>Use L1 when you have a large number of features and you suspect that some of them are irrelevant.</li>
+    <li>Use L2 when you have a lot of correlated features.</li>
+</ul>
+`
+            },
+            {
+                question: "Tell me about a time you had to 'Dive Deep' into a problem to find the root cause.",
+                answer: `
+<p><b>Answer (STAR Method):</b></p>
+<p><b>Situation:</b> At my internship last summer, we noticed a sudden 15% drop in user engagement on our mobile app. The initial assumption was that a recent app update had introduced a bug.</p>
+<p><b>Task:</b> I was tasked with investigating the root cause of the drop in engagement.</p>
+<p><b>Action:</b> I started by analyzing the data. I segmented the users by demographics, device type, and app version. I found that the drop was most significant among users on older Android devices. I then looked at the app performance metrics for this segment and noticed a significant increase in crash rates. I dove deeper into the crash reports and found that a new third-party library we had integrated was causing memory leaks on older Android versions. I worked with the engineering team to disable the library for that specific user segment.</p>
+<p><b>Result:</b> After disabling the problematic library, the crash rates for the affected user segment returned to normal, and user engagement recovered to its previous level within a week. This experience taught me the importance of diving deep into the data to find the true root cause of a problem, rather than relying on initial assumptions.</p>
+`
+            },
+            {
+                question: "Explain the bias-variance tradeoff.",
+                answer: `
+<p><b>Answer:</b></p>
+<p>The bias-variance tradeoff is a fundamental concept in machine learning.</p>
+<ul>
+    <li><b>Bias:</b> The error from erroneous assumptions in the learning algorithm. High bias can cause an algorithm to miss the relevant relations between features and target outputs (underfitting).</li>
+    <li><b>Variance:</b> The error from sensitivity to small fluctuations in the training set. High variance can cause an algorithm to model the random noise in the training data, rather than the intended outputs (overfitting).</li>
+</ul>
+<p>The tradeoff is that models with high bias tend to have low variance, and models with low bias tend to have high variance. The goal is to find a balance between bias and variance that minimizes the total error.</p>
+`
+            },
+            {
+                question: "What is A/B testing?",
+                answer: `
+<p><b>Answer:</b></p>
+<p>A/B testing is a randomized experiment with two variants, A and B. It is a way to compare two versions of a single variable, typically by testing a subject's response to variant A against variant B, and determining which of the two variants is more effective.</p>
+<p>For example, you could test two different headlines for an article to see which one gets more clicks. Or you could test two different button colors on a website to see which one leads to more conversions.</p>
+<p>The key to A/B testing is that it is a controlled experiment. You need to have a clear hypothesis, a large enough sample size, and you need to randomize which users see which version.</p>
+`
+            }
+        ];
+
+        const mockTestContainer = document.querySelector('#mock-test-container');
+        questions.forEach(q => {
+            const questionCard = document.createElement('mock-test-details');
+            questionCard.setAttribute('question', q.question);
+            questionCard.setAttribute('answer', q.answer);
+            mockTestContainer.appendChild(questionCard);
+        });
+    </script>
+</body>
+</html>

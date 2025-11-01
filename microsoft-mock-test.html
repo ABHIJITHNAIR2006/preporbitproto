@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft - Mock Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Microsoft - Product Manager</h1>
+    </header>
+    <main id="mock-test-container">
+        </main>
+    <script src="mock-test-details.js"></script>
+    <script>
+        const questions = [
+            {
+                question: "How would you design a smart alarm clock for blind users?",
+                answer: `
+<p><b>Answer:</b></p>
+<p>I'll use the CIRCLES framework to structure my answer:</p>
+<ul>
+    <li><b>Clarify:</b> Are we targeting a specific age group? Is this a physical product or a mobile app? Let's assume a physical product for all ages.</li>
+    <li><b>Identify Users:</b> The primary users are visually impaired individuals. We should also consider secondary users like family members or caregivers.</li>
+    <li><b>Report Needs:</b> The core need is to wake up reliably. For our users, this means non-visual cues. Key needs include: easy to set and disable alarms, tactile controls, and clear audio feedback.</li>
+    <li><b>Cut:</b> Let's prioritize features for the MVP. We'll focus on the core alarm functionality and tactile controls. Features like smart home integration can be added later.</li>
+    <li><b>List Solutions:</b>
+        <ul>
+            <li><b>Tactile Buttons:</b> Large, distinctively shaped buttons for setting time, setting the alarm, and snoozing.</li>
+            <li><b>Voice Control:</b> Use voice commands to set and manage alarms.</li>
+            <li><b>Haptic Feedback:</b> The alarm could be a gentle vibration, a series of pulses, or a combination of sound and vibration.</li>
+            <li><b>Audio Cues:</b> Announce the time and alarm settings.</li>
+        </ul>
+    </li>
+    <li><b>Evaluate:</b> Voice control is great but might not be reliable in a noisy environment. Tactile buttons are essential. Haptic feedback is a great alternative to loud noises.</li>
+    <li><b>Summarize:</b> For the MVP, we'll build a smart alarm clock with large, tactile buttons, voice commands for basic functions, and a combination of haptic and audio alarms. The device will have a simple, uncluttered design.</li>
+</ul>
+`
+            },
+            {
+                question: "How would you improve Microsoft Teams to increase user engagement?",
+                answer: `
+<p><b>Answer:</b></p>
+<p>To improve engagement in Microsoft Teams, I'll focus on three key areas: user segments, pain points, and solutions with measurable KPIs.</p>
+<p><b>User Segments:</b></p>
+<ul>
+    <li><b>Enterprise Power Users:</b> Heavily integrated into the Microsoft ecosystem.</li>
+    <li><b>SMBs:</b> Use Teams for core communication but may not use all features.</li>
+    <li><b>Students & Educators:</b> Use Teams for online classes and collaboration.</li>
+</ul>
+<p><b>Pain Points & Solutions:</b></p>
+<ul>
+    <li><b>Pain Point:</b> Meeting fatigue and information overload.
+        <ul>
+            <li><b>Solution:</b> Introduce AI-powered meeting summaries, transcriptions, and action item generation. This would help users quickly catch up on missed meetings.</li>
+            <li><b>KPI:</b> Measure the adoption of this feature and track the time spent in meetings per user.</li>
+        </ul>
+    </li>
+    <li><b>Pain Point:</b> Disconnected workflows (switching between apps).
+        <ul>
+            <li><b>Solution:</b> Deepen the integration with third-party apps. For example, allow users to complete tasks from other apps (like Trello or Jira) directly within Teams.</li>
+            <li><b>KPI:</b> Track the number of third-party apps connected and the number of actions performed within Teams.</li>
+        </ul>
+    </li>
+    <li><b>Pain Point:</b> Lack of social connection.
+        <ul>
+            <li><b>Solution:</b> Introduce more informal communication features like virtual common rooms or themed channels for non-work-related discussions.</li>
+            <li><b>KPI:</b> Measure the creation and activity in these social channels.</li>
+        </ul>
+    </li>
+</ul>
+`
+            },
+            {
+                question: "Tell me about a time you had a conflict with a teammate and how you resolved it.",
+                answer: `
+<p><b>Answer (STAR Method):</b></p>
+<p><b>Situation:</b> In my previous role as a product manager, I was working on a new feature launch. I had a disagreement with the lead engineer on the team. I wanted to prioritize a specific UI/UX enhancement that I believed was crucial for user adoption, while the engineer wanted to focus on a backend refactoring to improve performance.</p>
+<p><b>Task:</b> My goal was to launch a successful feature that balanced user experience and technical feasibility. The conflict was delaying the development timeline, so I needed to resolve it quickly.</p>
+<p><b>Action:</b> I scheduled a one-on-one meeting with the engineer. I started by actively listening to their perspective. They explained that the backend refactoring would prevent future technical debt and improve the feature's scalability. I then presented user research data that showed a strong preference for the UI/UX enhancement. We decided to compromise. We agreed to implement a simplified version of the UI enhancement for the initial launch and schedule the backend refactoring for the next sprint.</p>
+<p><b>Result:</b> This compromise allowed us to launch the feature on time. The initial user feedback on the UI was positive, and we were able to improve the backend in the following sprint. The conflict was resolved amicably, and our working relationship improved because we had found a way to balance our priorities.</p>
+`
+            },
+            {
+                question: "What is your favorite product and how would you improve it?",
+                answer: `
+<p><b>Answer:</b></p>
+<p>One of my favorite products is Spotify. It has a massive music library, excellent recommendation algorithms, and a seamless cross-device experience. However, I think there's room for improvement in social features.</p>
+<p><b>How I would improve it:</b></p>
+<p>I would introduce a feature called "Shared Queues." Currently, you can have collaborative playlists, but they are not real-time. With Shared Queues, users could create a temporary, real-time playlist for a party, a road trip, or a study session. Multiple people could add songs to the queue, and everyone would listen to the same music at the same time.</p>
+<p><b>Features of Shared Queues:</b></p>
+<ul>
+    <li><b>Real-time Sync:</b> Everyone in the session listens to the same song at the same time.</li>
+    <li><b>Collaborative Adding/Removing:</b> Any participant can add or remove songs from the queue.</li>
+    <li><b>Voting System:</b> Participants could vote on the next song to be played.</li>
+    <li><b>Temporary & Permanent:</b> The queue could be temporary for a single session or saved as a collaborative playlist.</li>
+</ul>
+<p><b>KPIs to track:</b></p>
+<ul>
+    <li>Number of Shared Queues created.</li>
+    <li>Number of users participating in Shared Queues.</li>
+    <li>Average session duration.</li>
+</ul>
+`
+            },
+            {
+                question: "Should Microsoft acquire Netflix?",
+                answer: `
+<p><b>Answer:</b></p>
+<p>This is a great strategic question. I'll break down my analysis into pros, cons, and a final recommendation.</p>
+<p><b>Pros of Acquisition:</b></p>
+<ul>
+    <li><b>Content is King:</b> Netflix has a massive library of original and licensed content. This would significantly boost Microsoft's content offerings and make Xbox Game Pass even more compelling.</li>
+    <li><b>Synergy with Xbox:</b> Microsoft could bundle Netflix with Xbox Game Pass Ultimate, creating an unbeatable entertainment package.</li>
+    <li><b>Streaming Infrastructure:</b> Netflix's streaming technology and infrastructure are top-notch. Microsoft could leverage this for its own streaming services.</li>
+</ul>
+<p><b>Cons of Acquisition:</b></p>
+<ul>
+    <li><b>Huge Cost:</b> Netflix has a massive market capitalization. This would be a very expensive acquisition.</li>
+    <li><b>Antitrust Scrutiny:</b> Regulators would likely scrutinize this deal very closely.</li>
+    <li><b>Cultural Integration:</b> Integrating two large companies with different cultures can be challenging.</li>
+</ul>
+<p><b>Recommendation:</b></p>
+<p>While the potential synergies are very attractive, the cost and regulatory hurdles are significant. Instead of a full acquisition, Microsoft could pursue a strategic partnership. For example, they could offer a discounted Netflix subscription to Xbox Game Pass Ultimate members. This would provide many of the benefits of an acquisition with less risk.</p>
+`
+            }
+        ];
+
+        const mockTestContainer = document.querySelector('#mock-test-container');
+        questions.forEach(q => {
+            const questionCard = document.createElement('mock-test-details');
+            questionCard.setAttribute('question', q.question);
+            questionCard.setAttribute('answer', q.answer);
+            mockTestContainer.appendChild(questionCard);
+        });
+    </script>
+</body>
+</html>

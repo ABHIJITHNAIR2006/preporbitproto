@@ -1,71 +1,79 @@
-# Placement Prep - Project Blueprint
 
-## Overview
+# **Project Blueprint: Placement Prep**
 
-This project is a web application designed to help students prepare for job placements. It provides resources such as company-specific mock tests, interview question banks, a resume builder, a skill-building section, and a contact form.
+## **1. Overview**
 
-## Project Structure
+**Purpose:** A comprehensive web application designed to help students and professionals prepare for job placement interviews. The platform provides resources for mock tests, interview preparation, resume building, skill enhancement, and question solving.
 
-- `index.html`: The main landing page of the application.
-- `mock-tests.html`: The page for company-specific mock tests.
-- `interview-prep.html`: The page for interview question banks.
-- `resume-builder.html`: The page for the resume builder.
-- `skill-building.html`: The page for skill-building resources.
-- `contact.html`: The page for the contact form.
-- `style.css`: Contains the styles for the application.
-- `main.js`: The main JavaScript file, containing logic for populating the mock tests and interview questions.
-- `interview-question.js`: A web component for displaying interview questions.
-- `resume-builder.js`: A web component for the resume builder form.
-- `skill-building.js`: The JavaScript file for the skill-building page.
-- `contact-form.js`: A web component for the contact form.
+**Key Capabilities:**
+- Centralized dashboard for accessing all preparation materials.
+- Interactive mock tests simulating real interview scenarios.
+- Curated interview questions and answers for various technical and behavioral topics.
+- A simple resume builder with tips and templates.
+- Resources for building technical skills in DSA and web development.
+- Links to popular platforms for practicing coding questions.
 
-## Features
+---
 
-### Landing Page
+## **2. Design and Features**
 
-- A welcoming hero section with a call to action.
-- An "About Us" section providing a brief description of the platform.
+### **Aesthetics & UI/UX**
 
-### Mock Tests Page
+- **Layout:** Clean, modern, and intuitive with a consistent navigation bar and footer. The main content is organized into clear sections with ample white space.
+- **Color Palette:** 
+  - `Primary Color`: `#007BFF` (a vibrant blue for interactive elements).
+  - `Secondary Color`: `#6C757D` (a muted gray for secondary text).
+  - `Background Color`: `#F8F9FA` (a light, clean background).
+  - `Surface Color`: `#FFFFFF` (for cards and modals).
+  - `Text Color`: `#212529`.
+- **Typography:** Uses a clean, sans-serif font family for readability. `font-family: 'Roboto', sans-serif;`
+- **Iconography:** Uses Font Awesome for icons to provide clear visual cues.
+- **Interactivity:** Buttons and links have clear hover states and a consistent call-to-action style.
 
-- Displays a list of company-specific mock tests on a dedicated page.
-- Each mock test is displayed as a card with the company name and job title.
+### **Implemented Features**
 
-### Interview Question Banks Page
+- **Home Page (`index.html`):**
+  - **Hero Section:** Engaging headline and a call-to-action button.
+  - **Features Section:** Dynamically generated cards for each of the main features (Mock Tests, Interview Prep, etc.).
+- **Mock Tests Page (`mock-tests.html`):**
+  - Displays a grid of available mock tests.
+  - Each test is a "card" with a title and a button to start.
+- **Interview Prep Page (`interview-prep.html`):**
+  - Organizes questions and answers by topic (DSA, OOPs, DBMS, etc.).
+  - Uses a custom `<mock-test-details>` web component to display questions and answers in an expandable format.
+- **Resume Builder Page (`resume-builder.html`):**
+  - Provides a hero section and a placeholder for resume tips.
+- **Skill Building Page (`skill-building.html`):**
+  - Displays curated resources (articles, tutorials) for DSA and Web Development.
+- **Question Solving Page (`question-solving.html`):**
+  - Provides links to popular coding problems on platforms like LeetCode and HackerRank, organized by topic.
+- **Authentication (`auth.html` & `auth-page.js`):
+  - A standalone, centered authentication page supporting both "Login" and "Sign Up" modes.
+  - The form dynamically switches between Login and Sign Up based on a URL parameter (`?mode=login` or `?mode=signup`).
+- **Web Components:**
+  - `auth-page.js`: A custom element for the login/signup form.
+  - `mock-test-details.js`: A custom element to display a question and its answer, with a toggle to show/hide the answer.
 
-- Displays a list of interview questions from various companies on a dedicated page.
-- Each question is displayed as a card with the question, company, topic, and a button to show/hide the answer.
+---
 
-### Resume Builder Page
+## **3. Current Plan: Merge Login and Sign Up**
 
-- Provides a form to create a professional resume on a dedicated page.
-- The form includes fields for personal information, education, and experience.
-- The resume is generated and displayed on the page.
+**User Request:** "I want the login and signup section to merge into one login/signup section."
 
-### Skill Building Page
+**Analysis:** The user wants to simplify the navigation by combining the separate "Login" and "Sign Up" buttons into a single, unified link.
 
-- Provides curated resources for Data Structures and Algorithms (DSA) and Web Development.
-- Resources are categorized by topic.
-- Each resource includes a link to an external website.
+### **Completed Steps:**
 
-### Contact Us Page
+1.  **Updated `auth.html`:**
+    -   Removed the `<header>` and `<footer>` to create a dedicated, distraction-free authentication page.
+    -   Added inline CSS to center the `<auth-page>` component vertically and horizontally on the page.
 
-- A contact form to allow users to send messages on a dedicated page.
-- The form includes fields for name, email, and message.
+2.  **Updated Navigation Across All Pages:**
+    -   Modified `index.html`, `mock-tests.html`, `interview-prep.html`, `resume-builder.html`, `skill-building.html`, and `question-solving.html`.
+    -   In each file, the two separate `<li>` elements for "Login" and "Sign Up" were replaced with a single `<li>`:
+        ```html
+        <li><a href="auth.html?mode=login" class="cta-button">Login / Sign Up</a></li>
+        ```
+    -   This new link directs the user to the authentication page, defaulting to the login form, while presenting a clear, combined call-to-action.
 
-## Design
-
-- The application uses a modern and clean design.
-- It uses a blue and green color scheme.
-- The layout is responsive and adapts to different screen sizes.
-- The application uses a noise texture for the background.
-- The cards have a shadow to create a lifted effect.
-
-## Current Plan: Add Skill Building Section
-
-- **Objective:** To add a new section to the website for skill-building resources.
-- **Steps Taken:**
-  - Created `skill-building.html` to house the content.
-  - Created `skill-building.js` to dynamically load the resource links.
-  - Added CSS styles to `style.css` for the new section.
-  - Updated the navigation bar in `index.html` and other relevant pages to include a link to the new "Skill Building" page.
+This change streamlines the user interface and provides a more modern, efficient authentication experience.
